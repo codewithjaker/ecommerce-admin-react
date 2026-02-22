@@ -1,9 +1,99 @@
-import React from 'react'
+import { 
+  Eye, 
+  Trash2,
+  ChevronRight 
+} from "lucide-react";
 
-const PackagePayments = () => {
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+
+const packagePayments = [
+  { id: "1", shopName: "The Beauty Shop", package: "Premium", amount: "$1,200", date: "20-04-2022", method: "Cash" },
+  { id: "2", shopName: "The Gainer", package: "Gold", amount: "$250", date: "16-04-2022", method: "Visa Card" },
+  { id: "3", shopName: "Tech Tube", package: "Silver", amount: "$9,320", date: "14-04-2022", method: "Stripe" },
+  { id: "4", shopName: "Smart HD", package: "Premium", amount: "$2,200", date: "12-04-2022", method: "PayPal" },
+  { id: "5", shopName: "Dream Boy", package: "Gold", amount: "$700", date: "08-04-2022", method: "Payoneer" },
+  { id: "6", shopName: "Beyond Threads", package: "Silver", amount: "$970", date: "01-04-2022", method: "Stripe" },
+  { id: "7", shopName: "Febrick Fashion", package: "Gold", amount: "$450", date: "26-03-2022", method: "PayPal" },
+  { id: "8", shopName: "Icon Boy", package: "Premium", amount: "$360", date: "16-03-2022", method: "Cash" },
+  { id: "9", shopName: "Mobile Gadgets", package: "Gold", amount: "$210", date: "12-03-2022", method: "PayPal" },
+];
+
+export default function PackagePaymentsPage() {
   return (
-    <div>PackagePayments</div>
-  )
-}
+    <div className="p-6 space-y-6 bg-[#F6F9FC] min-h-screen">
+      {/* Page Title */}
+      <h1 className="text-xl font-bold text-slate-800">Package Payments</h1>
 
-export default PackagePayments
+      <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+        <Table>
+          <TableHeader className="bg-slate-50 border-b border-slate-100">
+            <TableRow className="hover:bg-transparent">
+              <TableHead className="w-[80px] font-semibold text-slate-600">#</TableHead>
+              <TableHead className="font-semibold text-slate-600">Seller Info</TableHead>
+              <TableHead className="font-semibold text-slate-600">Package</TableHead>
+              <TableHead className="font-semibold text-slate-600">Amount</TableHead>
+              <TableHead className="font-semibold text-slate-600">Date</TableHead>
+              <TableHead className="font-semibold text-slate-600">Payment Method</TableHead>
+              <TableHead className="font-semibold text-slate-600 text-right">Action</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {packagePayments.map((payment) => (
+              <TableRow key={payment.id} className="group hover:bg-slate-50/50 transition-colors">
+                <TableCell className="text-slate-400 font-medium">
+                  {payment.id}
+                </TableCell>
+                <TableCell className="font-bold text-slate-800">
+                  {payment.shopName}
+                </TableCell>
+                <TableCell className="text-slate-500 font-medium">
+                  {payment.package}
+                </TableCell>
+                <TableCell className="text-slate-500 font-medium">
+                  {payment.amount}
+                </TableCell>
+                <TableCell className="text-slate-500 font-medium">
+                  {payment.date}
+                </TableCell>
+                <TableCell className="text-slate-500 font-medium">
+                  {payment.method}
+                </TableCell>
+                <TableCell className="text-right">
+                  <div className="flex items-center justify-end gap-2">
+                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-600">
+                      <Eye size={18} />
+                    </Button>
+                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-rose-500">
+                      <Trash2 size={18} />
+                    </Button>
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+
+        {/* Pagination Section */}
+        <div className="flex items-center justify-center gap-2 p-6 border-t border-slate-50 bg-white">
+          <Button variant="outline" size="icon" className="rounded-full w-8 h-8 border-[#0F172A] text-[#0F172A] font-bold">
+            1
+          </Button>
+          <Button variant="ghost" className="text-slate-400 hover:bg-transparent h-8 w-8 p-0">2</Button>
+          <Button variant="ghost" className="text-slate-400 hover:bg-transparent h-8 w-8 p-0">3</Button>
+          <Button variant="ghost" className="text-slate-400 hover:bg-transparent h-8 w-8 p-0">4</Button>
+          <Button variant="outline" size="icon" className="rounded-full w-8 h-8 text-slate-400 border-slate-200">
+            <ChevronRight size={16} />
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
