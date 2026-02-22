@@ -47,6 +47,7 @@ import AccountSettings from "./pages/settings/AccountSettings";
 import SiteSetting from "./pages/settings/SiteSetting";
 import ResetPassword from "./pages/auth/ResetPassword.tsx";
 import VerifyOtp from "./pages/auth/VerifyOtp.tsx";
+import ChangePassword from "./pages/auth/ChangePassword.tsx";
 
 // // Route Guards
 // const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
@@ -127,6 +128,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/shop-settings" element={<ShopSettings />} />
           <Route path="/account-settings" element={<AccountSettings />} />
+          <Route path="/account-settings/change-password" element={<ChangePassword />} />
           <Route path="/site-setting" element={<SiteSetting />} />
           <Route path="/support" element={<SupportTickets />} />
         </Route>
