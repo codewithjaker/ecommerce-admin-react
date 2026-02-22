@@ -1,10 +1,13 @@
-import { Button } from "@/components/ui/button";
+import { Toaster } from "./components/ui/sonner";
+
+import AppRoutes from "./router";
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
-    </div>
+    <>
+      <AppRoutes />
+      <Toaster />
+    </>
   );
 }
 
